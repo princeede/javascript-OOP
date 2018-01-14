@@ -1,3 +1,4 @@
+//Create an object
 var language = {
     name: 'Javascript',
     printName: () => {
@@ -8,3 +9,63 @@ var language = {
         attr2: 'Other attribute 2'
     }
 };
+
+//Factyory pattern
+function Fac(name) {
+    var obj = {
+        name: name,
+        printName: () => {
+            return this.name;
+        }
+    }
+    return obj;
+}
+
+var fac1 = new Fac('Factory Pattern');
+
+//Contructor pattern
+function Construct(name) {
+    this.name = name;
+
+    this.printName = () => {
+        return this.name;
+    }
+}
+
+var construct1 = new Construct('Constructor Pattern');
+var construct2 = new Construct('Another Contructor Pattern');
+console.log(construct1.printName == construct2.printName); // false
+
+//prototypal pattern
+function Prototypal() {};
+Prototypal.prototype.name = 'Prototype pattern';
+Prototypal.prototype.printName = () => {
+    return this.name;
+};
+
+var prot1 = new Prototypal();
+var prot2 = new Prototypal();
+
+console.log(prot1.printName == prot2.printName); // true
+
+//masking the name prototype property
+var prot1.name = 'Masking Name';
+
+console.log(prot1.name) // This logs 'Masking Name';
+console.log(prot2.name) // This logs 'Prototype pattern';
+
+//reference value for prototypal pattern
+Prototypal.prototype.patterns = ['Factory Pattern'];
+var prot1 = new Prototypal();
+var prot2 = new Prototypal();
+prot1.patterns.push('A New Pattern');
+console.log(prot2.patterns); // this logs 'Factory Pattern', 'A New Pattern';
+
+
+function ConsPro(name) {
+    this.name = name;
+}
+
+ConsPro.prototype.printName = () => {
+    return this.name;
+}
