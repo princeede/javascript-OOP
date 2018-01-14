@@ -1,0 +1,10 @@
+var language = {
+    name: 'Javascript',
+    printName: () => {
+        return this.name;
+    },
+    otherAttributes: {
+        attr1: 'Other attribute 1',
+        attr2: 'Other attribute 2'
+    }
+};
