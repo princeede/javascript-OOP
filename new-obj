@@ -64,8 +64,15 @@ console.log(prot2.patterns); // this logs 'Factory Pattern', 'A New Pattern';
 
 function ConsPro(name) {
     this.name = name;
+    this.arr = ['item1', 'item2'];
 }
 
 ConsPro.prototype.printName = () => {
     return this.name;
 }
+
+var conpro1 = new ConsPro();
+var conpro2 = new ConsPro();
+var conpro1.arr.push('item3');
+console.log(conpro1.arr)// ['item1', 'item2', 'item3'];
+console.log(conpro1.arr)// ['item1', 'item2'];
